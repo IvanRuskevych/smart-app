@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 
 import { IUser } from "../types";
-import { HttpService } from "./http.service.ts";
+import { HttpService } from "./http.service";
 import { API_KEYS } from "../shared/keys";
 
 export class UserService extends HttpService {
