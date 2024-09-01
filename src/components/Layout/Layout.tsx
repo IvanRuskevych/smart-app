@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { TableMui } from '../TableMui/TableMui.tsx';
 import './Layout.scss';
 
 export const Layout: React.FC = () => {
@@ -12,7 +13,7 @@ export const Layout: React.FC = () => {
         </nav>
       </header>
       <main className={'main'}>
-        <div>User table component</div> {/* TODO - add component*/}
+        <TableMui />
       </main>
       <footer className={'footer'}>Developer: Ivan Ruskevych</footer>
     </div>
