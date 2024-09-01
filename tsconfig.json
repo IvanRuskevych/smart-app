@@ -30,37 +30,7 @@
     "types": [
       "vite/client"
     ],
-    "paths": {
-      "~assets/*": [
-        "src/assets/*"
-      ],
-      "~modules/*": [
-        "src/modules/*"
-      ],
-      "~router/*": [
-        "src/router/*"
-      ],
-      "~shared/*": [
-        "src/shared/*"
-      ],
-      "~store/*": [
-        "src/store/*"
-      ],
-      "~typings/*": [
-        "src/typings/*"
-      ],
-      "~/*": [
-        "src/*"
-      ],
-      "~services/*": [
-        "src/services/*"
-      ],
-      "~helpers/*": [
-        "src/shared/helpers/*"
-      ]
-    }
-  },
-  "include": [
+      "include": [
     "./src/**/*",
     "./vite.config.ts",
     ".eslintrc.cjs"
@@ -71,4 +41,5 @@
     "./dist",
     "**/*spec.ts"
   ]
+}
 }
