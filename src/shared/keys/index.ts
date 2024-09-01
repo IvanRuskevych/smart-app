@@ -1,3 +1,3 @@
 export const API_KEYS = {
-  ALL: "",
+  USERS: 'users',
 };

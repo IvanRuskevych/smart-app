@@ -1,9 +1,10 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export class HttpService {
   constructor(
-    public baseUrl = process.env.SERVICE_URL,
-    public fetchingService = axios,
+    // public baseUrl = process.env.SERVICE_URL,
+    public baseUrl = 'https://jsonplaceholder.typicode.com',
+    public fetchingService = axios
   ) {
     this.baseUrl = baseUrl;
     this.fetchingService = fetchingService;
@@ -14,8 +15,8 @@ export class HttpService {
   }
 
   private sanitizeConfig(
-    config: AxiosRequestConfig,
-  ): Omit<AxiosRequestConfig, "url" | "data"> {
+    config: AxiosRequestConfig
+  ): Omit<AxiosRequestConfig, 'url' | 'data'> {
     const { url: _url, data: _data, ...configWithoutUrlAndData } = config;
     return configWithoutUrlAndData;
   }
@@ -23,7 +24,7 @@ export class HttpService {
   public get<T>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.fetchingService.get(
       this.getFullApiUrl(config.url),
-      this.sanitizeConfig(config),
+      this.sanitizeConfig(config)
     );
   }
 }

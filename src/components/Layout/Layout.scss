@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 1rem;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    //color: red;
+  }
+
+  &__profile {
+    padding: 5px;
+    cursor: pointer;
+
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: blue;
+  }
+}
+
+.footer {
+  padding: 1rem;
+}
