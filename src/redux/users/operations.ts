@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { IUser } from '../../types';
-import { userService } from '../../services';
 import { AppDispatch } from '../store';
+import { userService } from '../../services';
 
 export const fetchUsers = createAsyncThunk<
   IUser[],
