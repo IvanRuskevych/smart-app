@@ -7,6 +7,10 @@ import { useAppDispatch } from '../../redux/store.ts';
 import { fetchUsers } from '../../redux/users';
 import { containerStyle } from './TableMui.styles.ts';
 
+interface TableMuiProps {
+  rows: IUser[];
+}
+
 const tableHeader: GridColDef[] = [
   { field: 'name', headerName: 'Name', flex: 1 },
   { field: 'username', headerName: 'Lastname', flex: 1 },
@@ -24,10 +28,6 @@ const tableHeader: GridColDef[] = [
   },
 ];
 
-interface TableMuiProps {
-  rows: IUser[];
-}
-
 export const TableMui: React.FC<TableMuiProps> = ({ rows }) => {
   const dispatch = useAppDispatch();
   const columns: GridColDef<(typeof rows)[number]>[] = tableHeader;
@@ -38,7 +38,14 @@ export const TableMui: React.FC<TableMuiProps> = ({ rows }) => {
 
   return (
     <div className={containerStyle}>
-      <Box sx={{ height: 400, width: '100%' }}>
+      <Box
+        sx={{
+          height: 400,
+          width: '100%',
+          backgroundColor: 'white',
+          borderRadius: '5px',
+        }}
+      >
         <DataGrid
           rows={rows}
           columns={columns}

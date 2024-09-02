@@ -9,8 +9,8 @@ export const filterContainer = css`
 export const filterInput = css`
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid var(--border-primary);
-  background-color: var(--background-main);
+  border: none;
+  background-color: var(--background-secondary);
 `;
 
 export const listContainer = css`
@@ -18,6 +18,7 @@ export const listContainer = css`
   flex-direction: column;
   gap: 5px;
   padding: 10px;
+  border-radius: 5px;
   background-color: var(--background-secondary);
 
   @media ${DEVICE_TYPE.tablet} {
@@ -27,7 +28,6 @@ export const listContainer = css`
 
 export const listStyle = css`
   display: grid;
-  //flex-direction: column;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 10px;
   overflow-y: auto;
@@ -45,7 +45,7 @@ export const listStyle = css`
   }
 `;
 
-export const swiperContainerStyle = css`
+export const swiperContainer = css`
   .swiper {
     width: 100%;
     height: 100%;

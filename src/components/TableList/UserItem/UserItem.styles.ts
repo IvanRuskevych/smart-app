@@ -11,7 +11,7 @@ export const itemStyle = css`
   align-items: start;
   padding: 10px;
   width: 100%;
-  border: 1px solid grey;
+  border-radius: 5px;
   background-color: var(--background-main);
 
   @media ${DEVICE_TYPE.tablet} {

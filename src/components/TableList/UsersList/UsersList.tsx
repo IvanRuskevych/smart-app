@@ -14,7 +14,7 @@ import {
   filterInput,
   listContainer,
   listStyle,
-  swiperContainerStyle,
+  swiperContainer,
 } from './UserList.styles.ts';
 
 interface UsersListProps {
@@ -59,7 +59,7 @@ export const UsersList: React.FC<UsersListProps> = ({ users }) => {
 
         {isTablet && (
           <Swiper
-            className={swiperContainerStyle}
+            className={swiperContainer}
             spaceBetween={10}
             slidesPerView={2}
             pagination={{ clickable: true }}

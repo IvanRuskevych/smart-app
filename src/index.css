@@ -14,17 +14,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
-  /* COLORS*/
+/* COLORS*/
 --background-main: #EAEAEBB2;
 --background-primary: #202846;
 --background-secondary: #D7D7DD;
 --border-primary: #90A4AE;
 --text-primary: #202846;
 --text-secondary: #90A4AE;
---accent: #dfb017;
---accent-hover: #cea315;
---shadow: 7px 15px 13px -4px #00000056;
 }
 
 @media (prefers-color-scheme: light) {
