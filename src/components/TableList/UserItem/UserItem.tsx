@@ -16,8 +16,14 @@ export const UserItem: React.FC<{ user: IUser }> = ({ user }) => {
     <li className={itemStyle}>
       <span className={nameStyle}>Name: {name}</span>
       <span className={usernameStyle}>Lastname: {username}</span>
-      <span className={emailStyle}>Email: {email}</span>
-      <span className={phoneStyle}>Phone: {phone}</span>
+      <span className={emailStyle}>
+        Email:&nbsp;
+        <a href={`mailto:${email}`}>{email}</a>
+      </span>
+      <span className={phoneStyle}>
+        Phone:&nbsp;
+        <a href={`tel:${phone}`}>{phone}</a>
+      </span>
     </li>
   );
 };

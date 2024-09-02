@@ -16,14 +16,23 @@
 
 
   /* COLORS*/
-
-
+--background-main: #EAEAEBB2;
+--background-primary: #202846;
+--background-secondary: #D7D7DD;
+--border-primary: #90A4AE;
+--text-primary: #202846;
+--text-secondary: #90A4AE;
+--accent: #dfb017;
+--accent-hover: #cea315;
+--shadow: 7px 15px 13px -4px #00000056;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /*color: #213547;*/
+    color: var(--text-primary);
+    /*background-color: #ffffff;*/
+    background-color: var(--background-main);
   }
   a:hover {
     color: #747bff;

@@ -9,12 +9,16 @@ export const filterContainer = css`
 export const filterInput = css`
   padding: 10px;
   border-radius: 5px;
+  border: 1px solid var(--border-primary);
+  background-color: var(--background-main);
 `;
 
 export const listContainer = css`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 10px;
+  background-color: var(--background-secondary);
 
   @media ${DEVICE_TYPE.tablet} {
     display: block;
@@ -28,6 +32,12 @@ export const listStyle = css`
   gap: 10px;
   overflow-y: auto;
   max-height: 75vh;
+
+  /* Hidden scrollbar for WebKit & Firefox */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
 
   @media ${DEVICE_TYPE.tablet} {
     overflow-y: hidden;
@@ -45,6 +55,6 @@ export const swiperContainerStyle = css`
     display: grid;
     justify-items: center;
     align-items: start;
-    height: 150px;
+    height: 200px;
   }
 `;

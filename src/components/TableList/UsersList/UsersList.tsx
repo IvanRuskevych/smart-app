@@ -30,8 +30,6 @@ export const UsersList: React.FC<UsersListProps> = ({ users }) => {
   };
 
   const filteredUsers = users.filter(item => {
-    const search = Object.values(item);
-    console.log('search', search);
     const searchString = `${item.name} ${item.username} ${item.email} ${item.phone}`;
     return searchString.toLowerCase().includes(searchFilter.toLowerCase());
   });
@@ -49,6 +47,7 @@ export const UsersList: React.FC<UsersListProps> = ({ users }) => {
           />
         </div>
       )}
+
       <div className={listContainer}>
         {isMobile && (
           <ul className={listStyle}>
@@ -62,13 +61,13 @@ export const UsersList: React.FC<UsersListProps> = ({ users }) => {
           <Swiper
             className={swiperContainerStyle}
             spaceBetween={10}
-            slidesPerView={'auto'}
+            slidesPerView={2}
             pagination={{ clickable: true }}
             modules={[Navigation, Pagination]}
           >
             {filteredUsers.map(item => (
-              <SwiperSlide>
-                <UserItem key={item.id} user={item} />
+              <SwiperSlide key={item.id}>
+                <UserItem user={item} />
               </SwiperSlide>
             ))}
           </Swiper>

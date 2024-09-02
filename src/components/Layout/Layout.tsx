@@ -10,7 +10,7 @@ import './Layout.scss';
 
 export const Layout: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { isLaptop, isDesktop } = useDeviceType();
+  const { isMobile, isTablet, isLaptop, isDesktop } = useDeviceType();
   const users = useSelector(usersSelector);
 
   useEffect(() => {
@@ -21,17 +21,16 @@ export const Layout: React.FC = () => {
     <div className={'layout'}>
       <header className={'header'}>
         <nav className={'header__nav'}>
-          <a className={'header__profile'}>Profile</a>
-          <h1 className={'header__title'}>
-            JUNIOR FRONTEND DEVELOPER ASSIGNMENT
-          </h1>
+          <p>JUNIOR FRONTEND DEVELOPER ASSIGNMENT</p>
         </nav>
       </header>
       <main className={'main'}>
-        <UsersList users={users} />
+        {(isMobile || isTablet) && <UsersList users={users} />}
         {(isLaptop || isDesktop) && <TableMui rows={users} />}
       </main>
-      <footer className={'footer'}>Developer: Ivan Ruskevych</footer>
+      <footer className={'footer'}>
+        © 2024 Developer: Ivan Ruskevych. All rights reserved.
+      </footer>
     </div>
   );
 };
