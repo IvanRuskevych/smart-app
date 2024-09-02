@@ -9,12 +9,17 @@ export const filterContainer = css`
 export const filterInput = css`
   padding: 10px;
   border-radius: 5px;
+  border: none;
+  background-color: var(--background-secondary);
 `;
 
 export const listContainer = css`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--background-secondary);
 
   @media ${DEVICE_TYPE.tablet} {
     display: block;
@@ -23,11 +28,16 @@ export const listContainer = css`
 
 export const listStyle = css`
   display: grid;
-  //flex-direction: column;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 10px;
   overflow-y: auto;
   max-height: 75vh;
+
+  /* Hidden scrollbar for WebKit & Firefox */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
 
   @media ${DEVICE_TYPE.tablet} {
     overflow-y: hidden;
@@ -35,7 +45,7 @@ export const listStyle = css`
   }
 `;
 
-export const swiperContainerStyle = css`
+export const swiperContainer = css`
   .swiper {
     width: 100%;
     height: 100%;
@@ -45,6 +55,6 @@ export const swiperContainerStyle = css`
     display: grid;
     justify-items: center;
     align-items: start;
-    height: 150px;
+    height: 200px;
   }
 `;

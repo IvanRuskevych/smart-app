@@ -2,8 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export class HttpService {
   constructor(
-    // public baseUrl = process.env.SERVICE_URL,
-    public baseUrl = 'https://jsonplaceholder.typicode.com',
+    public baseUrl = import.meta.env.VITE_SERVICE_URL,
     public fetchingService = axios
   ) {
     this.baseUrl = baseUrl;

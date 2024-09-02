@@ -5,19 +5,21 @@ export const itemStyle = css`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr;
+  align-content: stretch;
 
   justify-items: start;
-  align-items: center;
+  align-items: start;
   padding: 10px;
   width: 100%;
-  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: var(--background-main);
 
   @media ${DEVICE_TYPE.tablet} {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'name email'
       'username phone';
-    height: 100px;
+    height: 150px;
   }
 `;
 
