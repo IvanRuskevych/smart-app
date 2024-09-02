@@ -21,6 +21,7 @@ type DeviceType = {
   isDesktop: boolean;
 };
 
+// For components
 export const useDeviceType = (): DeviceType => {
   const isMobile = useMediaQuery({
     maxWidth: size.tablet - 0.02,
@@ -38,6 +39,7 @@ export const useDeviceType = (): DeviceType => {
   return { isMobile, isTablet, isLaptop, isDesktop };
 };
 
+// For styles
 export const DEVICE_TYPE = {
   mobile: `(max-width: ${size.tablet - 0.02}px)`,
   tablet: `(min-width: ${size.tablet}px) and (max-width: ${size.laptop - 0.02}px)`,

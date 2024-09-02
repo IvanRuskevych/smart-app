@@ -2,6 +2,15 @@ import { css } from '@emotion/css';
 
 import { DEVICE_TYPE } from '../../../hooks/useDeviceType.ts';
 
+export const filterContainer = css`
+  margin-bottom: 20px;
+`;
+
+export const filterInput = css`
+  padding: 10px;
+  border-radius: 5px;
+`;
+
 export const listContainer = css`
   display: flex;
   flex-direction: column;
@@ -13,8 +22,9 @@ export const listContainer = css`
 `;
 
 export const listStyle = css`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  //flex-direction: column;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 10px;
   overflow-y: auto;
   max-height: 75vh;
@@ -34,7 +44,7 @@ export const swiperContainerStyle = css`
   .swiper-slide {
     display: grid;
     justify-items: center;
-    align-items: center;
-    height: 200px;
+    align-items: start;
+    height: 150px;
   }
 `;
