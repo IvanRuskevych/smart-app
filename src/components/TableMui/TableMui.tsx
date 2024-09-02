@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
+import { IUser } from '../../types';
 import { useAppDispatch } from '../../redux/store.ts';
-import { fetchUsers, usersSelector } from '../../redux/users';
+import { fetchUsers } from '../../redux/users';
 
 const tableHeader = [
   { field: 'name', headerName: 'Name', flex: 1 },
@@ -13,9 +13,12 @@ const tableHeader = [
   { field: 'phone', headerName: 'Phone', flex: 1 },
 ];
 
-export const TableMui = () => {
+interface TableMuiProps {
+  rows: IUser[];
+}
+
+export const TableMui: React.FC<TableMuiProps> = ({ rows }) => {
   const dispatch = useAppDispatch();
-  const rows = useSelector(usersSelector);
   const columns: GridColDef<(typeof rows)[number]>[] = tableHeader;
 
   useEffect(() => {
