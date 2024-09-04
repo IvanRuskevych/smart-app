@@ -48,6 +48,8 @@ export const UsersList: React.FC<UsersListProps> = ({
 
   return (
     <>
+      {loading && <Loader loading={loading} />}
+
       {(isMobile || isTablet) && (
         <div className={filterContainer}>
           <input
@@ -85,8 +87,6 @@ export const UsersList: React.FC<UsersListProps> = ({
           </Swiper>
         )}
       </div>
-
-      {loading && <Loader loading={loading} />}
     </>
   );
 };

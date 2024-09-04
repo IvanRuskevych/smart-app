@@ -37,6 +37,8 @@ export const TableMui: React.FC<UsersListProps> = ({
 
   return (
     <>
+      {loading && <Loader loading={loading} />}
+
       <div className={containerStyle}>
         <Box
           sx={{
@@ -63,8 +65,6 @@ export const TableMui: React.FC<UsersListProps> = ({
           />
         </Box>
       </div>
-
-      {loading && <Loader loading={loading} />}
     </>
   );
 };
