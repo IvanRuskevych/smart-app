@@ -321,6 +321,7 @@ return result$$;`.replaceAll("$$",String(rC)));return rC+=1,(l,a)=>i(o,l,a)},nI=
   padding: 10px;
   width: 100%;
   border-radius: 5px;
+  border: 1px solid var(--border-primary);
   background-color: var(--background-main);
 
   @media ${gs.tablet} {
@@ -357,9 +358,7 @@ return result$$;`.replaceAll("$$",String(rC)));return rC+=1,(l,a)=>i(o,l,a)},nI=
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 10px;
   border-radius: 5px;
-  background-color: var(--background-secondary);
 
   @media ${gs.tablet} {
     display: block;
