@@ -6,7 +6,6 @@ import { fetchUsers, usersSelector } from '../../redux/users';
 import { useDeviceType } from '../../hooks/useDeviceType.ts';
 import { TableMui } from '../TableMui/TableMui.tsx';
 import { UsersList } from '../TableList/UsersList/UsersList.tsx';
-import './Layout.styles.ts';
 import {
   footerStyle,
   headerStyle,
@@ -16,8 +15,8 @@ import {
 
 export const Layout: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { users, loading, error } = useSelector(usersSelector);
   const { isMobile, isTablet, isLaptop, isDesktop } = useDeviceType();
-  const users = useSelector(usersSelector);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -31,8 +30,12 @@ export const Layout: React.FC = () => {
         </nav>
       </header>
       <main className={mainStyle}>
-        {(isMobile || isTablet) && <UsersList users={users} />}
-        {(isLaptop || isDesktop) && <TableMui rows={users} />}
+        {(isMobile || isTablet) && (
+          <UsersList users={users} loading={loading} error={error} />
+        )}
+        {(isLaptop || isDesktop) && (
+          <TableMui users={users} loading={loading} error={error} />
+        )}
       </main>
       <footer className={footerStyle}>
         © 2024 Developer: Ivan Ruskevych. All rights reserved.

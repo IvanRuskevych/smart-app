@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,9 +7,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { IUser } from '../../../types';
+import { UsersListProps } from '../../../types';
 import { useDeviceType } from '../../../hooks/useDeviceType.ts';
 import { UserItem } from '../UserItem/UserItem.tsx';
+import { Loader } from '../../Loader/Loader.tsx';
 import {
   filterContainer,
   filterInput,
@@ -17,11 +19,11 @@ import {
   swiperContainer,
 } from './UserList.styles.ts';
 
-interface UsersListProps {
-  users: IUser[];
-}
-
-export const UsersList: React.FC<UsersListProps> = ({ users }) => {
+export const UsersList: React.FC<UsersListProps> = ({
+  users,
+  loading,
+  error,
+}) => {
   const { isMobile, isTablet } = useDeviceType();
   const [searchFilter, setSearchFilter] = useState('');
 
@@ -33,6 +35,16 @@ export const UsersList: React.FC<UsersListProps> = ({ users }) => {
     const searchString = `${item.name} ${item.username} ${item.email} ${item.phone}`;
     return searchString.toLowerCase().includes(searchFilter.toLowerCase());
   });
+
+  useEffect(() => {
+    if (!!searchFilter && filteredUsers.length === 0) {
+      toast.warning('No users match this filter');
+    }
+  }, [searchFilter]);
+
+  useEffect(() => {
+    if (error) toast.error(error);
+  }, [error]);
 
   return (
     <>
@@ -73,6 +85,8 @@ export const UsersList: React.FC<UsersListProps> = ({ users }) => {
           </Swiper>
         )}
       </div>
+
+      {loading && <Loader loading={loading} />}
     </>
   );
 };

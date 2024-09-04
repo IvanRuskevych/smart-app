@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { toast } from 'react-toastify';
 
-import { IUser } from '../../types';
-import { useAppDispatch } from '../../redux/store.ts';
-import { fetchUsers } from '../../redux/users';
+import { UsersListProps } from '../../types';
+import { Loader } from '../Loader/Loader.tsx';
 import { containerStyle } from './TableMui.styles.ts';
-
-interface TableMuiProps {
-  rows: IUser[];
-}
 
 const tableHeader: GridColDef[] = [
   { field: 'name', headerName: 'Name', flex: 1 },
@@ -28,40 +24,47 @@ const tableHeader: GridColDef[] = [
   },
 ];
 
-export const TableMui: React.FC<TableMuiProps> = ({ rows }) => {
-  const dispatch = useAppDispatch();
+export const TableMui: React.FC<UsersListProps> = ({
+  users: rows,
+  loading,
+  error,
+}) => {
   const columns: GridColDef<(typeof rows)[number]>[] = tableHeader;
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+    if (error) toast.error(error);
+  }, [error]);
 
   return (
-    <div className={containerStyle}>
-      <Box
-        sx={{
-          height: 400,
-          width: '100%',
-          backgroundColor: 'white',
-          borderRadius: '5px',
-        }}
-      >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 5,
-              },
-            },
+    <>
+      <div className={containerStyle}>
+        <Box
+          sx={{
+            height: 400,
+            width: '100%',
+            backgroundColor: 'white',
+            borderRadius: '5px',
           }}
-          pageSizeOptions={[5]}
-          checkboxSelection
-          disableRowSelectionOnClick
-          autoHeight
-        />
-      </Box>
-    </div>
+        >
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 5,
+                },
+              },
+            }}
+            pageSizeOptions={[5]}
+            checkboxSelection
+            disableRowSelectionOnClick
+            autoHeight
+          />
+        </Box>
+      </div>
+
+      {loading && <Loader loading={loading} />}
+    </>
   );
 };
