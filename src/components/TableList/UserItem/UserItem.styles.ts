@@ -12,6 +12,7 @@ export const itemStyle = css`
   padding: 10px;
   width: 100%;
   border-radius: 5px;
+  border: 1px solid var(--border-primary);
   background-color: var(--background-main);
 
   @media ${DEVICE_TYPE.tablet} {

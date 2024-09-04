@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { toast } from 'react-toastify';
 
-import { UsersListProps } from '../../types';
+import { IUserState } from '../../types';
 import { Loader } from '../Loader/Loader.tsx';
 import { containerStyle } from './TableMui.styles.ts';
 
@@ -24,7 +24,7 @@ const tableHeader: GridColDef[] = [
   },
 ];
 
-export const TableMui: React.FC<UsersListProps> = ({
+export const TableMui: React.FC<IUserState> = ({
   users: rows,
   loading,
   error,

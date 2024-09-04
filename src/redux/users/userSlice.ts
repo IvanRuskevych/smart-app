@@ -23,7 +23,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.users = payload;
       })
-      // TODO
       .addCase(
         fetchUsers.rejected,
         (state, action: PayloadAction<string | undefined>) => {
