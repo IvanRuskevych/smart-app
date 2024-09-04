@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { UsersListProps } from '../../../types';
+import { IUserState } from '../../../types';
 import { useDeviceType } from '../../../hooks/useDeviceType.ts';
 import { UserItem } from '../UserItem/UserItem.tsx';
 import { Loader } from '../../Loader/Loader.tsx';
@@ -19,11 +19,7 @@ import {
   swiperContainer,
 } from './UserList.styles.ts';
 
-export const UsersList: React.FC<UsersListProps> = ({
-  users,
-  loading,
-  error,
-}) => {
+export const UsersList: React.FC<IUserState> = ({ users, loading, error }) => {
   const { isMobile, isTablet } = useDeviceType();
   const [searchFilter, setSearchFilter] = useState('');
 

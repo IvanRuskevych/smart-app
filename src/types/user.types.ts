@@ -43,10 +43,3 @@ export type SetFilterActionType = PayloadAction<{
   field: keyof FiltersType;
   value: string;
 }>;
-
-// Props type
-export interface UsersListProps {
-  users: IUser[];
-  loading: boolean;
-  error: string | null;
-}

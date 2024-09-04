@@ -17,9 +17,7 @@ export const listContainer = css`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 10px;
   border-radius: 5px;
-  background-color: var(--background-secondary);
 
   @media ${DEVICE_TYPE.tablet} {
     display: block;
