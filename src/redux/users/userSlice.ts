@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IUserState } from '../../types';
 import { fetchUsers } from './operations';
@@ -23,11 +23,14 @@ const userSlice = createSlice({
         state.loading = false;
         state.users = payload;
       })
-      .addCase(fetchUsers.rejected, (state, { payload }) => {
-        state.loading = false;
-        // @ts-ignore
-        state.error = payload;
-      });
+      // TODO
+      .addCase(
+        fetchUsers.rejected,
+        (state, action: PayloadAction<string | undefined>) => {
+          state.loading = false;
+          state.error = action.payload ?? 'Unknown error occurred';
+        }
+      );
   },
 });
 

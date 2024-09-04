@@ -28,7 +28,7 @@ export interface IUser {
 export interface IUserState {
   users: IUser[];
   loading: boolean;
-  error: null;
+  error: string | null;
 }
 
 // filtersSlice types
@@ -43,3 +43,10 @@ export type SetFilterActionType = PayloadAction<{
   field: keyof FiltersType;
   value: string;
 }>;
+
+// Props type
+export interface UsersListProps {
+  users: IUser[];
+  loading: boolean;
+  error: string | null;
+}
