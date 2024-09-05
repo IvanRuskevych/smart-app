@@ -1,5 +1,9 @@
 import { css } from '@emotion/css';
 
+export const titleTable = css`
+  margin-bottom: 10px;
+`;
+
 export const layoutContainer = css`
   display: grid;
   grid-template-rows: auto 1fr auto;
