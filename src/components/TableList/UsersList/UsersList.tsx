@@ -12,6 +12,7 @@ import { useDeviceType } from '../../../hooks/useDeviceType.ts';
 import { UserItem } from '../UserItem/UserItem.tsx';
 import { Loader } from '../../Loader/Loader.tsx';
 import {
+  buttonClear,
   filterContainer,
   filterInput,
   listContainer,
@@ -34,13 +35,17 @@ export const UsersList: React.FC<IUserState> = ({ users, loading, error }) => {
 
   useEffect(() => {
     if (!!searchFilter && filteredUsers.length === 0) {
-      toast.warning('No users match this filter');
+      toast.warning(`No users match this filter: ${searchFilter}`);
     }
   }, [searchFilter]);
 
   useEffect(() => {
     if (error) toast.error(error);
   }, [error]);
+
+  const handleClearField = () => {
+    setSearchFilter('');
+  };
 
   return (
     <>
@@ -55,6 +60,13 @@ export const UsersList: React.FC<IUserState> = ({ users, loading, error }) => {
             placeholder="Search users..."
             className={filterInput}
           />
+          <button
+            type={'button'}
+            onClick={handleClearField}
+            className={buttonClear}
+          >
+            Clear
+          </button>
         </div>
       )}
 

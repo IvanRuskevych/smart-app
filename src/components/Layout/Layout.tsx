@@ -11,6 +11,7 @@ import {
   headerStyle,
   layoutContainer,
   mainStyle,
+  titleTable,
 } from './Layout.styles.ts';
 
 export const Layout: React.FC = () => {
@@ -30,6 +31,7 @@ export const Layout: React.FC = () => {
         </nav>
       </header>
       <main className={mainStyle}>
+        <h1 className={titleTable}> User Management Table</h1>
         {(isMobile || isTablet) && (
           <UsersList users={users} loading={loading} error={error} />
         )}

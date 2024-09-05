@@ -1,3 +1,36 @@
+# Smart App
+This application ensures an intuitive user experience across various platforms while providing robust functionality for managing user data efficiently.
+
+## Description
+This application provides a responsive and dynamic interface for managing user information. 
+It includes the following key features:
+ - User Information Display: The app displays essential user details, including name, username, email, and phone number in a structured format.
+ - Advanced Filtering: An integrated search feature allows users to filter the table by name, username, email, and phone, making it easy to find specific records quickly.
+ - Responsive Design: The application adapts to different devices with tailored behaviors:
+   - Desktop: Displays user data in a traditional table format for a comprehensive view.
+   - Tablet: Transforms the data into a slider format for easier navigation on medium-sized screens.
+   - Mobile: Presents the information in a list format for optimal viewing on smaller devices.
+
+![img.png](public/img-1.png)
+![img_1.png](public/img_2.png)
+![img_2.png](public/img_3.png)
+![img_3.png](public/img_4.png)
+
+ 
+### Using the Application:
+1. Use the [link](https://ivanruskevych.github.io/smart-app/) to start using the application
+
+### Steps to Run the Application:
+1. Clone the repository: `git clone https://github.com/IvanRuskevych/smart-app.git` & `cd smart-app`
+
+2. Install dependencies: `npm install`
+
+3. Start in development mode: `npm run dev`
+
+4. Open a web browser and go to: `http://localhost:5173/smart-app/`
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

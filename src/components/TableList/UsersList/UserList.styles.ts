@@ -6,6 +6,17 @@ export const filterContainer = css`
   margin-bottom: 20px;
 `;
 
+export const buttonClear = css`
+  margin-left: 10px;
+  width: 70px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--background-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+`;
+
 export const filterInput = css`
   padding: 10px;
   border-radius: 5px;
